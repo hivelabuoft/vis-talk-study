@@ -12,7 +12,7 @@ This study has 3 parts:
 - **Part 2:** You’ll answer multiple-choice questions about the data visualizations we show you.
 - **Part 3:** You’ll take a look at a few more data visualizations and share your thoughts out loud using the microphone on your device.
 
-In total, it should take around 20 minutes. There will be a few breaks throughout the study so you can refresh your mind or take a sip of water. 
+In total, it should take around 25 minutes. There will be a few breaks throughout the study so you can refresh your mind or take a sip of water. 
 
 Participation in this study is **anonymous**: we won't ask you for your name or other directly identifying information.
 
@@ -23,7 +23,7 @@ You'll receive $5 through Prolific for your participation in this study.
 There are no major risks from participating. Some charts address political topics, which may cause mild discomfort. You may exit the survey at any time, although in order to receive payment you have to complete the full survey. While there are no direct personal benefits aside from payment, your participation will advance research on public data communication.
 
 ### How will my data be used and stored?
-Your responses will be stored on encrypted servers accessible only to the research team. The research ethics board of the University of Toronto may also have confidential access to data to help ensure participant protection procedures are followed. 
+Your responses will be stored on secure servers accessible only to the research team. The research ethics board of the University of Toronto may also have confidential access to data to help ensure participant protection procedures are followed. 
 
 Quotes from your responses might be included in publications, but only anonymously. You can ask for your response to be deleted for up to 2 weeks after the survey by emailing the research team.
 
