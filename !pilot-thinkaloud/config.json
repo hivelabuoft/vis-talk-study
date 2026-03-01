@@ -42,7 +42,17 @@
                     "location": "belowStimulus",
                     "type": "checkbox",
                     "options": ["Yes"]
+                },
+                {
+                    "id": "prolificId",
+                    "prompt": "Prolific ID (should be filled in automatically, but please enter it here if it is not):",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "shortText",
+                    "placeholder": "Prolific ID",
+                    "paramCapture": "PROLIFIC_PID"
                 }
+
             ]
         },
         "introduction": {
