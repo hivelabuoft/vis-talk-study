@@ -23,7 +23,7 @@
         "withProgressBar": false,
         "autoDownloadStudy": false,
         "withSidebar": true,
-        "recordAudio": false,
+        "recordAudio": true,
         "urlParticipantIdParam": "PROLIFIC_PID"
     },
     "importedLibraries": [
@@ -34,6 +34,7 @@
         "consent": {
             "type": "markdown",
             "path": "!pilot-thinkaloud/assets/intro-1.md",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "q-sidebar",
@@ -47,15 +48,18 @@
         "introduction": {
             "type": "markdown",
             "path": "!pilot-thinkaloud/assets/intro-2.md",
+            "recordAudio": false,
             "response": []
         },
         "calvi-intro": {
             "type": "markdown",
             "path": "!pilot-thinkaloud/assets/calvi-intro.md",
+            "recordAudio": false,
             "response": []
         },
         "demographics": {
             "type": "questionnaire",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "age",
@@ -85,6 +89,7 @@
         },
         "media-questionnaire": {
             "type": "questionnaire",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "media-matrix",
@@ -97,6 +102,7 @@
         },
         "issue-familiarity": {
             "type": "questionnaire",
+            "recordAudio": false,
             "instructionLocation": "aboveStimulus",
             "response": [
                 {
@@ -105,12 +111,13 @@
                     "secondaryText": "There are no right or wrong answers, so please answer honestly based on your own feelings of familiarity with each topic.",
                     "type": "matrix-radio",
                     "answerOptions": ["I have never heard of it", "I’ve heard of it, but know almost nothing", "I know a little", "I know a fair amount", "I know a lot"],
-                    "questionOptions": ["Gun control", "United States military spending", "Donald Trump's presidency", "United States immigration policy"]
+                    "questionOptions": ["Gun control", "United States military spending", "Recent U.S. presidential terms", "United States immigration policy"]
                 }
             ]
         },
         "belief-questionnaire": {
             "type": "questionnaire",
+            "recordAudio": false,
             "response": [
                 {
                     "id": "belief-matrix",
@@ -123,6 +130,7 @@
         },
         "stimulus-view-chart": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "nextButtonEnableTime": 30000,
             "instruction": "Please read and understand the following visualization. Then, click 'Next' to proceed.",
@@ -137,6 +145,7 @@
         },
         "stimulus-pre-words": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "instruction": "Please fill out the text box below.",
             "parameters": {
@@ -151,7 +160,7 @@
                     "id": "pre_words",
                     "type": "shortText",
                     "location": "belowStimulus",
-                    "prompt": "In 3-5 words, how would you describe the visualization you just read?",
+                    "prompt": "Please write 3-5 words that you think best describe this visualization.",
                     "secondaryText": "Feel free to write anything that comes to mind.",
                     "required": true,
                     "placeholder": "3–5 words"
@@ -161,6 +170,7 @@
         "stimulus-getready": {
             "type": "react-component",
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
+            "recordAudio": false,
             "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. \n**When you are ready, click \"Start Recording\".**",
             "nextButtonText": "Start recording",
             "response": []
@@ -183,6 +193,7 @@
         },
         "stimulus-post-words": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "parameters": {
                 "phase": "post_words",
@@ -196,14 +207,14 @@
                 {
                     "id": "post-stimulus-response",
                     "required": true,
-                    "prompt": "Would you say that your opinion of the visualization has changed significantly after speaking about it?",
+                    "prompt": "Would you say that your opinion of this visualization has changed significantly after speaking about it?",
                     "type": "radio",
                     "options": ["Yes, I have changed my opinion", "No, my opinion has not changed"]
                 },
                 {
                     "id": "post-stimulus-description",
                     "required": false,
-                    "prompt": "If your opinion has changed, please write how you would now describe the visualization in 3-5 words.",
+                    "prompt": "If your opinion has changed, please write 3-5 words that you think best describe this visualization.",
                     "secondaryText": "If your opinion has not changed, you may leave this field blank.",
                     "type": "shortText",
                     "placeholder": "Enter your updated description here"
@@ -212,6 +223,7 @@
         },
         "example-view-chart": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "nextButtonEnableTime": 30000,
             "instruction": "Please read and understand the following visualization. Then, click 'Next' to proceed.",
@@ -226,6 +238,7 @@
         },
         "example-pre-words": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "instruction": "Please fill out the text box below.",
             "parameters": {
@@ -240,7 +253,7 @@
                     "id": "pre_words",
                     "type": "shortText",
                     "location": "belowStimulus",
-                    "prompt": "In 3-5 words, how would you describe the visualization you just read?",
+                    "prompt": "Please write 3-5 words that you think best describe this visualization.",
                     "secondaryText": "Feel free to write anything that comes to mind.",
                     "required": true,
                     "placeholder": "3–5 words"
@@ -249,6 +262,7 @@
         },
         "example-getready": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. \n**Please ensure you are not muted, and that your browser is capturing audio.** You will see a red visualization of your audio input in the top right of your screen. The audio recording is required to successfully complete the study and receive payment. \nWhen you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
@@ -275,6 +289,7 @@
         },
         "example-post-words": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "parameters": {
                 "phase": "post_words",
@@ -288,14 +303,14 @@
                 {
                     "id": "post-stimulus-response",
                     "required": true,
-                    "prompt": "Would you say that your opinion of the visualization has changed significantly after speaking about it?",
+                    "prompt": "Would you say that your opinion of this visualization has changed significantly after speaking about it?",
                     "type": "radio",
                     "options": ["Yes, I have changed my opinion", "No, my opinion has not changed"]
                 },
                 {
                     "id": "post-stimulus-description",
                     "required": false,
-                    "prompt": "If your opinion has changed, please write how you would now describe the visualization in 3-5 words.",
+                    "prompt": "If your opinion has changed, please write 3-5 words that you think best describe this visualization.",
                     "secondaryText": "If your opinion has not changed, you may leave this field blank.",
                     "type": "shortText",
                     "placeholder": "Enter your updated description here"
@@ -304,53 +319,62 @@
         },
         "example-end": {
             "type": "markdown",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/example_end.md",
             "response": []
         },
         "break": {
             "type": "markdown",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/break.md",
             "nextButtonEnableTime": 5000,
             "response": []
         },
         "congruence-setter_gun_mil": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["gun", "mil"] },
             "response": []
         },
         "congruence-setter_gun_trump": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["gun", "trump"] },
             "response": []
         },
         "congruence-setter_gun_immig": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["gun", "immig"] },
             "response": []
         },
         "congruence-setter_mil_trump": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["mil", "trump"] },
             "response": []
         },
         "congruence-setter_mil_immig": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["mil", "immig"] },
             "response": []
         },
         "congruence-setter_trump_immig": {
             "type": "react-component",
+            "recordAudio": false,
             "path": "!pilot-thinkaloud/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["trump", "immig"] },
             "response": []
         },
         "post-study-feedback": {
             "type": "questionnaire",
+            "recordAudio": false,
             "instruction": "Thank you very much for participating in our study! Your feedback is greatly appreciated and will help us improve our research.",
             "response": [
                 {
@@ -380,16 +404,12 @@
                 "order": "latinSquare",
                 "components": [
                     "$calvi.components.T37",
-                    "$calvi.components.T38",
                     "$calvi.components.T50",
                     "$calvi.components.T30",
                     "$calvi.components.T42",
                     "$calvi.components.T43",
-                    "$calvi.components.T40",
                     "$calvi.components.N8",
-                    "$calvi.components.N10",
-                    "$calvi.components.N11",
-                    "$calvi.components.N15"
+                    "$calvi.components.N11"
                 ]
             },
             "break",
