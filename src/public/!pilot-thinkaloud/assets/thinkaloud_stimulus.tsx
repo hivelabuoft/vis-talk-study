@@ -35,7 +35,7 @@ export default function PngChartPhase({ parameters }: Props) {
 
   return (
     <div style={{
-      width: '80%', height: '80%', margin: 0, padding: 0,
+      width: '100%', height: '100%', margin: 0, padding: 0,
     }}
     >
       <img
@@ -43,7 +43,8 @@ export default function PngChartPhase({ parameters }: Props) {
         alt=""
         style={{
           display: 'block',
-          maxWidth: '100%',
+          maxWidth: '90vw',
+          maxHeight: '75vh',
           objectFit: 'contain',
           marginBottom: 10,
         }}

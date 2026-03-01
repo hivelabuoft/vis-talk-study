@@ -30,6 +30,7 @@ export default function SetCongruence({ parameters }: Props) {
 
   return (
     <div style={{ maxWidth: 920, margin: '0 auto', lineHeight: 1.5 }}>
+      <h1>Part 3</h1>
       <p>
         In the following sections, you will be presented with a few data
         visualizations. You will have 30 seconds to read and understand each
@@ -50,11 +51,18 @@ export default function SetCongruence({ parameters }: Props) {
         {' '}
         <strong>
           Your critiques may focus on strengths or weaknesses of the
-          visualization.
+          visualization (or both).
         </strong>
         {' '}
-        Once you are done speaking, click &quot;Finish Recording&quot; to end
-        the recording.
+        </p>
+        
+      <p>
+        When you start recording, you should see a visualization of your audio input in the top right of your screen. If you do not see this, please check that your browser is capturing audio and that you are not muted. The audio recording is required to successfully complete the study and receive payment.
+        Once you are done speaking, you can click &quot;Finish Recording&quot; to end the recording.
+      </p>
+
+      <p>
+        We'll walk through a practice question together to help you get familiar with the process. Click &quot;Next&quot; to start the practice question.
       </p>
     </div>
   );
