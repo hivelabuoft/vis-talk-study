@@ -1,5 +1,6 @@
 // src/public/my-study/assets/PngChartPhase.tsx
 import React, { useMemo, useState, useEffect } from 'react';
+import { PREFIX } from '../../../utils/Prefix';
 
 type ChartPhaseParams = {
   imagePath?: string | null; // path under /public or full URL
@@ -11,8 +12,8 @@ type Props = {
 
 function normalizeImageSrc(imagePath: string): string {
   if (/^https?:\/\//i.test(imagePath)) return imagePath;
-  if (imagePath.startsWith('/')) return imagePath;
-  return `/${imagePath}`;
+  if (imagePath.startsWith('/')) return `${PREFIX}${imagePath.slice(1)}`;
+  return `${PREFIX}${imagePath}`;
 }
 
 export default function PngChartPhase({ parameters }: Props) {
