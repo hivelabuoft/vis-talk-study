@@ -105,7 +105,7 @@
                     "secondaryText": "There are no right or wrong answers, so please answer honestly based on your own feelings of familiarity with each topic.",
                     "type": "matrix-radio",
                     "answerOptions": ["I have never heard of it", "I’ve heard of it, but know almost nothing", "I know a little", "I know a fair amount", "I know a lot"],
-                    "questionOptions": ["Gun control", "United States military spending", "Recent U.S. presidential terms", "United States immigration policy"]
+                    "questionOptions": ["Gun control", "United States military spending", "Different branches of government", "Immigration policy"]
                 }
             ]
         },
@@ -161,7 +161,7 @@
         "stimulus-getready": {
             "type": "react-component",
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
-            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. \n**When you are ready, click \"Start Recording\".**",
+            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**When you are ready, click \"Start Recording\".**",
             "nextButtonText": "Start recording",
             "response": []
         },
@@ -169,7 +169,7 @@
             "type": "react-component",
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. \n**Once you are finished speaking, click \"Finish Recording\".**",
+            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**Once you are finished speaking, click \"Finish Recording\".**",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -250,7 +250,7 @@
         "example-getready": {
             "type": "react-component",
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
-            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. \n**Please ensure you are not muted, and that your browser is capturing audio.** You will see a red visualization of your audio input in the top right of your screen. The audio recording is required to successfully complete the study and receive payment. \nWhen you are ready, click \"Start Recording\".",
+            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/> **Please ensure you are not muted, and that your browser is capturing audio.** You will see a red visualization of your audio input in the top right of your screen. The audio recording is required to successfully complete the study and receive payment. <br/><br/>When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "parameters": {
                 "imagePath": "!pilot-thinkaloud/assets/mariah.png"
@@ -261,7 +261,7 @@
             "type": "react-component",
             "path": "!pilot-thinkaloud/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. \n**Please ensure you are not muted, and that your browser is capturing audio. You should now see a red visualization of your audio input in the top right.** The audio recording is required to successfully complete the study and receive payment. \nOnce you are finished speaking, click \"Finish Recording\".",
+            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**Please ensure you are not muted, and that your browser is capturing audio. You should now see a red visualization of your audio input in the top right.** The audio recording is required to successfully complete the study and receive payment. <br/><br/>Once you are finished speaking, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
