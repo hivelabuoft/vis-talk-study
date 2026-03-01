@@ -33,15 +33,13 @@ export default function SetCongruence({ parameters }: Props) {
       <h1>Part 3</h1>
       <p>
         In the following sections, you will be presented with a few data
-        visualizations. You will have 30 seconds to read and understand each
-        visualization. After 30 seconds, click &quot;Next&quot; when you are
-        ready to proceed. You will then be asked to do a speaking task and a
+        visualizations. Please take at least 30 seconds to read and understand each
+        visualization. You will then be asked to do a speaking task and a
         writing task, though the order may vary.
       </p>
 
       <p>
-        For the writing task, please simply write how you would describe the
-        data visualization in 3-5 words.
+        For the writing task, please simply write down your opinion about the visualization you just read.
       </p>
 
       <p>
