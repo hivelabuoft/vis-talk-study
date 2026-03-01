@@ -1,5 +1,5 @@
 // src/public/my-study/assets/PngChartPhase.tsx
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from 'react';
 
 type ChartPhaseParams = {
   imagePath?: string | null; // path under /public or full URL
@@ -11,16 +11,16 @@ type Props = {
 
 function normalizeImageSrc(imagePath: string): string {
   if (/^https?:\/\//i.test(imagePath)) return imagePath;
-  if (imagePath.startsWith("/")) return imagePath;
+  if (imagePath.startsWith('/')) return imagePath;
   return `/${imagePath}`;
 }
 
 export default function PngChartPhase({ parameters }: Props) {
-  const imagePath = parameters?.imagePath ?? "";
+  const imagePath = parameters?.imagePath ?? '';
   const [imgError, setImgError] = useState<string | null>(null);
 
   const src = useMemo(() => {
-    if (!imagePath) return "";
+    if (!imagePath) return '';
     return normalizeImageSrc(imagePath);
   }, [imagePath]);
 
@@ -34,15 +34,18 @@ export default function PngChartPhase({ parameters }: Props) {
   }
 
   return (
-    <div style={{ width: "80%", height: "80%", margin: 0, padding: 0 }}>
+    <div style={{
+      width: '80%', height: '80%', margin: 0, padding: 0,
+    }}
+    >
       <img
         src={src}
         alt=""
         style={{
-          display: "block",
-          maxWidth: "100%",
-          objectFit: "contain",
-          marginBottom: 10
+          display: 'block',
+          maxWidth: '100%',
+          objectFit: 'contain',
+          marginBottom: 10,
         }}
         onError={() => setImgError(`Could not load image: ${src}`)}
       />

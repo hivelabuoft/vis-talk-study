@@ -1,11 +1,11 @@
 // src/public/my-study/assets/SetCongruence.tsx
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
 type Props = {
   parameters?: { congruentIssues?: string[] };
 };
 
-const STORAGE_KEY = "revisit_congruentIssues";
+const STORAGE_KEY = 'revisit_congruentIssues';
 
 export default function SetCongruence({ parameters }: Props) {
   const didSetRef = useRef(false);
@@ -24,12 +24,12 @@ export default function SetCongruence({ parameters }: Props) {
     } catch (e) {
       // If localStorage is blocked, at least keep it on window
       (window as any).__revisit_congruentIssues = congruentIssues;
-      console.warn("Could not write congruentIssues to localStorage:", e);
+      console.warn('Could not write congruentIssues to localStorage:', e);
     }
   }, [parameters]);
 
   return (
-    <div style={{ maxWidth: 920, margin: "0 auto", lineHeight: 1.5 }}>
+    <div style={{ maxWidth: 920, margin: '0 auto', lineHeight: 1.5 }}>
       <p>
         In the following sections, you will be presented with a few data
         visualizations. You will have 30 seconds to read and understand each
@@ -46,11 +46,13 @@ export default function SetCongruence({ parameters }: Props) {
       <p>
         For the speaking task, you will be asked to critique the data
         visualization you just read. When you click &quot;Start Recording&quot;,
-        please speak into the microphone to say your thoughts.{" "}
+        please speak into the microphone to say your thoughts.
+        {' '}
         <strong>
           Your critiques may focus on strengths or weaknesses of the
           visualization.
-        </strong>{" "}
+        </strong>
+        {' '}
         Once you are done speaking, click &quot;Finish Recording&quot; to end
         the recording.
       </p>

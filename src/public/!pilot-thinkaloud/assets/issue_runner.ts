@@ -6,59 +6,59 @@
 // - Emits exactly 5 phase components for that issue, then returns null.
 // - Counts progress by looking at answers keys that include BOTH "stimulus" and the issueId.
 
-import type { JumpFunctionParameters, JumpFunctionReturnVal } from "../../../store/types";
+import type { JumpFunctionParameters, JumpFunctionReturnVal } from '../../../store/types';
 
 // ---------- Edit these in one place ----------
 const ISSUES = [
   {
-    issueId: "gun" as const,
+    issueId: 'gun' as const,
     proposition:
-      "Gun ownership should be more strictly regulated in the United States to reduce violent crime.",
-    proImagePath: "!pilot-thinkaloud/assets/issue_stimuli/gun_pro.png",
-    conImagePath: "!pilot-thinkaloud/assets/issue_stimuli/gun_con.png",
+      'Gun ownership should be more strictly regulated in the United States to reduce violent crime.',
+    proImagePath: '!pilot-thinkaloud/assets/issue_stimuli/gun_pro.png',
+    conImagePath: '!pilot-thinkaloud/assets/issue_stimuli/gun_con.png',
   },
   {
-    issueId: "mil" as const,
+    issueId: 'mil' as const,
     proposition:
-      "The United States Government should increase its military budget to protect national security.",
-    proImagePath: "!pilot-thinkaloud/assets/issue_stimuli/mil_pro.png",
-    conImagePath: "!pilot-thinkaloud/assets/issue_stimuli/mil_con.png",
+      'The United States Government should increase its military budget to protect national security.',
+    proImagePath: '!pilot-thinkaloud/assets/issue_stimuli/mil_pro.png',
+    conImagePath: '!pilot-thinkaloud/assets/issue_stimuli/mil_con.png',
   },
   {
-    issueId: "trump" as const,
-    proposition: "I approve of the way Donald Trump is handling his job as President.",
-    proImagePath: "!pilot-thinkaloud/assets/issue_stimuli/trump_pro.png",
-    conImagePath: "!pilot-thinkaloud/assets/issue_stimuli/trump_con.png",
+    issueId: 'trump' as const,
+    proposition: 'I approve of the way Donald Trump is handling his job as President.',
+    proImagePath: '!pilot-thinkaloud/assets/issue_stimuli/trump_pro.png',
+    conImagePath: '!pilot-thinkaloud/assets/issue_stimuli/trump_con.png',
   },
   {
-    issueId: "immig" as const,
+    issueId: 'immig' as const,
     proposition:
-      "Immigration in the United States should be more strictly regulated to reduce the number of undocumented immigrants.",
-    proImagePath: "!pilot-thinkaloud/assets/issue_stimuli/immig_pro.png",
-    conImagePath: "!pilot-thinkaloud/assets/issue_stimuli/immig_con.png",
+      'Immigration in the United States should be more strictly regulated to reduce the number of undocumented immigrants.',
+    proImagePath: '!pilot-thinkaloud/assets/issue_stimuli/immig_pro.png',
+    conImagePath: '!pilot-thinkaloud/assets/issue_stimuli/immig_con.png',
   },
 ];
 
 const PHASES = [
-  "stimulus-view-chart",
-  "stimulus-pre-words",
-  "stimulus-getready",
-  "stimulus-record",
-  "stimulus-post-words",
+  'stimulus-view-chart',
+  'stimulus-pre-words',
+  'stimulus-getready',
+  'stimulus-record',
+  'stimulus-post-words',
 ] as const;
 
 // Belief matrix location
-const BELIEF_COMPONENT = "belief-questionnaire";
-const BELIEF_MATRIX_ID = "belief-matrix";
+const BELIEF_COMPONENT = 'belief-questionnaire';
+const BELIEF_MATRIX_ID = 'belief-matrix';
 
 // Congruence "setter" storage location (update if you used a different component id)
-const CONGRUENCE_SETTER_COMPONENT = "congruence-setter";
-const CONGRUENCE_SETTER_RESPONSE_ID = "congruentIssues";
+const CONGRUENCE_SETTER_COMPONENT = 'congruence-setter';
+const CONGRUENCE_SETTER_RESPONSE_ID = 'congruentIssues';
 
 // ---------- Types ----------
-type IssueId = (typeof ISSUES)[number]["issueId"];
+type IssueId = (typeof ISSUES)[number]['issueId'];
 type PhaseComponentId = (typeof PHASES)[number];
-type Stance = "agree" | "disagree";
+type Stance = 'agree' | 'disagree';
 
 type Params = {
   issueId: IssueId;
@@ -67,51 +67,51 @@ type Params = {
 // ---------- Helpers ----------
 function normalizeImagePath(p: string): string {
   if (!p) return p;
-  return p.startsWith("/") ? p.slice(1) : p;
+  return p.startsWith('/') ? p.slice(1) : p;
 }
 
 function parseStanceFromLabel(label: unknown): Stance | null {
-  if (typeof label !== "string") return null;
+  if (typeof label !== 'string') return null;
 
-  if (label === "Strongly Agree" || label === "Agree") return "agree";
-  if (label === "Strongly Disagree" || label === "Disagree") return "disagree";
-  if (label === "Neutral") return null;
+  if (label === 'Strongly Agree' || label === 'Agree') return 'agree';
+  if (label === 'Strongly Disagree' || label === 'Disagree') return 'disagree';
+  if (label === 'Neutral') return null;
 
   const lc = label.toLowerCase();
-  if (lc.includes("strong") && lc.includes("agree")) return "agree";
-  if (lc === "agree") return "agree";
-  if (lc.includes("strong") && lc.includes("disagree")) return "disagree";
-  if (lc === "disagree") return "disagree";
-  if (lc === "neutral") return null;
+  if (lc.includes('strong') && lc.includes('agree')) return 'agree';
+  if (lc === 'agree') return 'agree';
+  if (lc.includes('strong') && lc.includes('disagree')) return 'disagree';
+  if (lc === 'disagree') return 'disagree';
+  if (lc === 'neutral') return null;
 
   return null;
 }
 
 function stanceForIssue(
   answers: any,
-  issueId: IssueId
+  issueId: IssueId,
 ): { stance: Stance; isNeutral: boolean } {
   const matrix = answers?.[BELIEF_COMPONENT]?.answer?.[BELIEF_MATRIX_ID] as
     | string[]
     | undefined;
 
-  const order: IssueId[] = ["gun", "mil", "trump", "immig"];
+  const order: IssueId[] = ['gun', 'mil', 'trump', 'immig'];
   const idx = order.indexOf(issueId);
 
   const label = Array.isArray(matrix) ? matrix[idx] : undefined;
   const parsed = parseStanceFromLabel(label);
 
-  if (parsed === null) return { stance: "disagree", isNeutral: true };
-  if (!parsed) return { stance: "disagree", isNeutral: false };
+  if (parsed === null) return { stance: 'disagree', isNeutral: true };
+  if (!parsed) return { stance: 'disagree', isNeutral: false };
 
   return { stance: parsed, isNeutral: false };
 }
 
-const STORAGE_KEY = "revisit_congruentIssues";
-const VALID_ISSUES: readonly IssueId[] = ["gun", "mil", "trump", "immig"] as const;
+const STORAGE_KEY = 'revisit_congruentIssues';
+const VALID_ISSUES: readonly IssueId[] = ['gun', 'mil', 'trump', 'immig'] as const;
 
 function isIssueId(x: unknown): x is IssueId {
-  return typeof x === "string" && (VALID_ISSUES as readonly string[]).includes(x);
+  return typeof x === 'string' && (VALID_ISSUES as readonly string[]).includes(x);
 }
 
 export function getCongruentIssuesFromSetter(): IssueId[] {
@@ -139,16 +139,15 @@ function chooseImagePath(opts: {
   issue: (typeof ISSUES)[number];
   congruentSet: Set<IssueId>;
   stance: Stance;
-}): { imagePath: string; side: "pro" | "con" } {
+}): { imagePath: string; side: 'pro' | 'con' } {
   const { issue, congruentSet, stance } = opts;
   const isCongruent = congruentSet.has(issue.issueId);
 
-  const showPro =
-    (isCongruent && stance === "agree") || (!isCongruent && stance === "disagree");
+  const showPro = (isCongruent && stance === 'agree') || (!isCongruent && stance === 'disagree');
 
   return {
     imagePath: normalizeImagePath(showPro ? issue.proImagePath : issue.conImagePath),
-    side: showPro ? "pro" : "con",
+    side: showPro ? 'pro' : 'con',
   };
 }
 
@@ -160,10 +159,8 @@ function chooseImagePath(opts: {
  */
 function countCompletedForIssue(answers: any, issueId: IssueId): number {
   console.log(answers, issueId);
-  return Object.entries(answers ?? {}).filter(([componentName]) => {
-    return (componentName.includes("stimulus") &&
-      componentName.includes(issueId));
-  }).length;
+  return Object.entries(answers ?? {}).filter(([componentName]) => (componentName.includes('stimulus')
+      && componentName.includes(issueId))).length;
 }
 
 // ---------- Main dynamic function ----------
@@ -174,7 +171,7 @@ export default function trials({
   const issueId = customParameters?.issueId;
 
   if (!issueId) {
-    console.error("Missing customParameters.issueId for issue runner.");
+    console.error('Missing customParameters.issueId for issue runner.');
     return { component: null };
   }
 
@@ -192,7 +189,6 @@ export default function trials({
   const k = countCompletedForIssue(answers, issueId);
   const phaseCount = PHASES.length; // 5
   const phaseIndex = k % phaseCount;
-
 
   // Stop after 5 pages for this issue
   if (k >= phaseCount) {
