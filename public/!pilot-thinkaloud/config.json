@@ -25,6 +25,7 @@
         "withSidebar": true,
         "recordAudio": false,
         "urlParticipantIdParam": "PROLIFIC_PID",
+        "studyEndMsg": "Thank you for completing the study! Return to Prolific: [https://app.prolific.com/submissions/complete?cc=C147KGIL](https://app.prolific.com/submissions/complete?cc=C147KGIL)"
     },
     "importedLibraries": [
         "mic-check",
