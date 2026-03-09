@@ -1,3 +1,3 @@
 If you are experiencing issues with audio recording, please make sure the webpage has permission to access your microphone. There should be an icon in your address bar that lets you see your microphone permissions. If not, you can go to your browser's privacy and security settings to add the webpage to the list of allowed sites for microphone use.
 
-If you are experiencing other issues with the study, please contact varona@cs.toronto.edu.
+If you are experiencing other issues with the study, please email varona@cs.toronto.edu.
