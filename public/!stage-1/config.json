@@ -116,9 +116,10 @@
                 {
                     "id": "belief-matrix",
                     "prompt": "Please rate how much you agree or disagree with the following statements:",
+                    "secondaryText": "If you feel neutral about a statement, please think about which way you would lean if asked to choose, and select \"Slightly Agree\" or \"Slightly Disagree\" accordingly.",
                     "type": "matrix-radio",
                     "questionOrder": "random",
-                    "answerOptions": ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+                    "answerOptions": ["Strongly Disagree", "Disagree", "Slightly Disagree", "Slightly Agree", "Agree", "Strongly Agree"],
                     "questionOptions": ["Gun ownership should be more strictly regulated in the United States.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Undocumented immigrants should be deported from the United States."]
                 }
             ]
@@ -126,9 +127,7 @@
         "belief-lean": {
             "type": "react-component",
             "path": "!stage-1/assets/belief_lean.tsx",
-            "response": [
-                { "id": "belief-lean-answers", "type": "shortText", "prompt": "", "required": true }
-            ]
+            "response": []
         },
         "stimulus-view-chart": {
             "type": "react-component",
@@ -417,19 +416,7 @@
             "demographics",
             "media-questionnaire",
             "issue-familiarity",
-            {
-                "id": "belief-block",
-                "order": "fixed",
-                "components": [
-                    "belief-questionnaire",
-                    {
-                        "id": "belief-lean-block",
-                        "order": "dynamic",
-                        "functionPath": "!stage-1/assets/belief_lean_runner.ts",
-                        "parameters": {}
-                    }
-                ]
-            },
+            "belief-questionnaire",
             "calvi-intro",
             "$calvi.components.N7",
             {
