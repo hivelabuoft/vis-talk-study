@@ -92,7 +92,7 @@
                     "prompt": "How often do you get news from the following sources?",
                     "type": "matrix-radio",
                     "answerOptions": ["Never", "Hardly ever", "Sometimes", "Often"],
-                    "questionOptions": ["Print newspapers", "Radio", "Television news (including local, national, and cable news)", "Facebook", "Reddit", "X (formerly Twitter)", "Instagram", "TikTok", "YouTube", "News apps on your phone (e.g., Apple News, Google News, etc.)", "News websites (e.g., CNN.com, FoxNews.com, etc.)"]
+                    "questionOptions": ["Print newspapers", "Radio", "Television news (including local, national, and cable news)", "Facebook", "Reddit", "X (formerly Twitter)", "Instagram", "TikTok", "YouTube", "For this item only, please select 'Often'", "News apps on your phone (e.g., Apple News, Google News, etc.)", "News websites (e.g., CNN.com, FoxNews.com, etc.)"]
                 }
             ]
         },
@@ -116,7 +116,6 @@
                 {
                     "id": "belief-matrix",
                     "prompt": "Please rate how much you agree or disagree with the following statements:",
-                    "secondaryText": "If you feel neutral about a statement, please think about which way you would lean if asked to choose, and select \"Slightly Agree\" or \"Slightly Disagree\" accordingly.",
                     "type": "matrix-radio",
                     "questionOrder": "random",
                     "answerOptions": ["Strongly Disagree", "Disagree", "Slightly Disagree", "Slightly Agree", "Agree", "Strongly Agree"],
@@ -133,7 +132,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "nextButtonEnableTime": 30000,
-            "instruction": "Please read and understand the following visualization. Then, click 'Next' to proceed.",
+            "instruction": "Please read and understand the following chart. Then, click 'Next' to proceed.",
             "parameters": {
                 "phase": "view",
                 "issueId": null,
@@ -159,16 +158,36 @@
                     "id": "pre_valence",
                     "type": "radio",
                     "location": "belowStimulus",
-                    "prompt": "Overall, do you have a positive, negative, or neutral opinion about this visualization?",
-                    "secondaryText": "Note that this question is asking about your overall impression of the visualization (i.e. the entirety of the image above, including titles), not the specific topic it covers.",
-                    "options": ["Very Negative", "Negative", "Neutral", "Positive", "Very Positive"],
+                    "horizontal": true,
+                    "prompt": "Overall, would you say you like or dislike this chart?",
+                    "secondaryText": "Note that this question is asking about your opinion of the chart (i.e. the entirety of the image above), not the specific topic it covers.",
+                    "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
                     "required": true
                 },
                 {
                     "id": "pre_word_1",
                     "type": "shortText",
                     "location": "belowStimulus",
-                    "prompt": "Please write 3 words that, in your opinion, best describe this visualization.",
+                    "prompt": "Please write 3 words that, in your opinion, best describe this chart.",
+                    "secondaryText": "Word 1",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "pre_word_2",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 2",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "pre_word_3",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 3",
                     "required": true,
                     "placeholder": ""
                 }
@@ -177,7 +196,7 @@
         "stimulus-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "response": []
         },
@@ -185,7 +204,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -212,17 +231,17 @@
                 {
                     "id": "post-stimulus-response",
                     "required": true,
-                    "prompt": "Would you say that your opinion of this visualization has changed significantly after speaking about it?",
+                    "prompt": "Would you say that your opinion of this chart has changed significantly after speaking about it?",
                     "type": "radio",
                     "options": ["Yes, I have changed my opinion", "No, my opinion has not changed"]
                 },
                 {
                     "id": "post-stimulus-description",
                     "required": false,
-                    "prompt": "If your opinion has changed, please write 3-5 words that you think best describe this visualization.",
+                    "prompt": "If your opinion has changed, please explain what caused this to change, and what your new opinion is.",
                     "secondaryText": "If your opinion has not changed, you may leave this field blank.",
                     "type": "shortText",
-                    "placeholder": "Enter your updated description here"
+                    "placeholder": "Explain your updated opinion here"
                 }
             ]
         },
@@ -230,7 +249,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "nextButtonEnableTime": 30000,
-            "instruction": "Please read and understand the following visualization. Then, click 'Next' to proceed.",
+            "instruction": "Please read and understand the following chart. Then, click 'Next' to proceed.",
             "parameters": {
                 "phase": "view",
                 "issueId": null,
@@ -257,8 +276,8 @@
                     "type": "radio",
                     "location": "belowStimulus",
                     "horizontal": true,
-                    "prompt": "Overall, would you say you like or dislike this visualization?",
-                    "secondaryText": "Note that this question is asking about your opinion of the visualization (i.e. the entirety of the image above), not the specific topic it covers.",
+                    "prompt": "Overall, would you say you like or dislike this chart?",
+                    "secondaryText": "Note that this question is asking about your opinion of the chart (i.e. the entirety of the image above), not the specific topic it covers.",
                     "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
                     "required": true
                 },
@@ -266,7 +285,7 @@
                     "id": "pre_word_1",
                     "type": "shortText",
                     "location": "belowStimulus",
-                    "prompt": "Please write 3 words that, in your opinion, best describe this visualization.",
+                    "prompt": "Please write 3 words that, in your opinion, best describe this chart.",
                     "secondaryText": "Word 1",
                     "required": true,
                     "placeholder": ""
@@ -294,7 +313,7 @@
         "example-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "parameters": {
                 "imagePath": "!stage-1/assets/mariah.png"
@@ -305,7 +324,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -332,17 +351,17 @@
                 {
                     "id": "post-stimulus-response",
                     "required": true,
-                    "prompt": "Would you say that your opinion of this visualization has changed significantly after speaking about it?",
+                    "prompt": "Would you say that your opinion of this chart has changed significantly after speaking about it?",
                     "type": "radio",
                     "options": ["Yes, I have changed my opinion", "No, my opinion has not changed"]
                 },
                 {
                     "id": "post-stimulus-description",
                     "required": false,
-                    "prompt": "If your opinion has changed, please write 3-5 words that you think best describe this visualization.",
+                    "prompt": "If your opinion has changed, please explain what caused this to change, and what your new opinion is.",
                     "secondaryText": "If your opinion has not changed, you may leave this field blank.",
                     "type": "shortText",
-                    "placeholder": "Enter your updated description here"
+                    "placeholder": "Explain your updated opinion here"
                 }
             ]
         },
