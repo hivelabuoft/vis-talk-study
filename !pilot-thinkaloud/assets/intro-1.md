@@ -6,6 +6,8 @@ In today's age, data plays a bigger role than ever in how we make sense of the w
 ### Who can participate?
 Anyone aged 18 or older who lives in the United States, is fluent in English, and has normal or corrected-to-normal vision. You must also have a working microphone on your device in order to clearly capture audio—we will help you test the microphone later to ensure that you can respond.
 
+**Please note that use of generative AI to complete any part of the study is prohibited, and doing so is grounds for rejection.**
+
 ### What does the study entail?
 This study has 3 parts:
 - **Part 1:** You’ll fill out some basic information about yourself and what media you consume. 
@@ -24,6 +26,8 @@ There are no major risks from participating. Some charts address political topic
 
 ### How will my data be used and stored?
 Your responses will be stored on secure servers accessible only to the research team. The research ethics board of the University of Toronto may also have confidential access to data to help ensure participant protection procedures are followed. 
+
+The research team will analyze your responses as part of our research into public data engagement. Voice recordings will not be used to train AI models, and will be deleted after the conclusion of the research project.
 
 Quotes from your responses might be included in publications, but only anonymously. You can ask for your response to be deleted for up to 2 weeks after the survey by emailing the research team.
 
