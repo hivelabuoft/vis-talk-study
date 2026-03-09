@@ -1,0 +1,16 @@
+<script src="../../revisitUtilities/revisit-communicate.js"></script>
+<script>
+ Revisit.onDataReceive((data) => {
+   // insert an image stimulus
+    const stimulusContainer = document.getElementById('stimulus-container');
+    const stimulusImage = document.createElement('img');
+    stimulusImage.src = "defense.png";
+    stimulusContainer.appendChild(stimulusImage);
+ });
+
+ // Call out that 'barChart' needs to match ID in 'response' object
+ Revisit.postAnswers({ barChart: userAnswer });
+</script>
+<div id="stimulus-container">
+ <!-- stimulus will be inserted here -->
+</div>
