@@ -11,8 +11,8 @@ Anyone aged 18 or older who lives in the United States, is fluent in English, an
 ### What does the study entail?
 This study has 3 parts:
 - **Part 1:** You’ll fill out some basic information about yourself and what media you consume. 
-- **Part 2:** You’ll answer multiple-choice questions about the data visualizations we show you.
-- **Part 3:** You’ll take a look at a few more data visualizations and share your thoughts out loud using the microphone on your device.
+- **Part 2:** You’ll answer multiple-choice questions about the charts we show you.
+- **Part 3:** You’ll take a look at a few more charts and share your thoughts out loud using the microphone on your device.
 
 If you do not feel comfortable speaking into your microphone, we ask that you return the study.
 
