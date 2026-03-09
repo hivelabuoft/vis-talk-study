@@ -117,17 +117,9 @@
                     "id": "belief-matrix",
                     "prompt": "Please rate how much you agree or disagree with the following statements:",
                     "type": "matrix-radio",
-                    "questionOrder": "random",
                     "answerOptions": ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
-                    "questionOptions": ["Gun ownership should be more strictly regulated in the United States.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Undocumented immigrants should be deported from the United States."]
+                    "questionOptions": ["Gun ownership should be more strictly regulated in the United States to reduce violent crime.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Immigration in the United States should be more strictly regulated to reduce the number of undocumented immigrants."]
                 }
-            ]
-        },
-        "belief-lean": {
-            "type": "react-component",
-            "path": "!stage-1/assets/belief_lean.tsx",
-            "response": [
-                { "id": "belief-lean-answers", "type": "shortText", "prompt": "", "required": true }
             ]
         },
         "stimulus-view-chart": {
@@ -178,7 +170,7 @@
         "stimulus-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**When you are ready, click \"Start Recording\".**",
             "nextButtonText": "Start recording",
             "response": []
         },
@@ -186,7 +178,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**Once you are finished speaking, click \"Finish Recording\".**",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -295,7 +287,7 @@
         "example-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/> **Please ensure you are not muted, and that your browser is capturing audio.** You will see a red visualization of your audio input in the top right of your screen. The audio recording is required to successfully complete the study and receive payment. <br/><br/>When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "parameters": {
                 "imagePath": "!stage-1/assets/mariah.png"
@@ -306,7 +298,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this visualization and chosen words to describe it. Now, please explain your opinion by talking about the visualization itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**Please ensure you are not muted, and that your browser is capturing audio. You should now see a red visualization of your audio input in the top right.** The audio recording is required to successfully complete the study and receive payment. <br/><br/>Once you are finished speaking, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -417,19 +409,7 @@
             "demographics",
             "media-questionnaire",
             "issue-familiarity",
-            {
-                "id": "belief-block",
-                "order": "fixed",
-                "components": [
-                    "belief-questionnaire",
-                    {
-                        "id": "belief-lean-block",
-                        "order": "dynamic",
-                        "functionPath": "!stage-1/assets/belief_lean_runner.ts",
-                        "parameters": {}
-                    }
-                ]
-            },
+            "belief-questionnaire",
             "calvi-intro",
             "$calvi.components.N7",
             {

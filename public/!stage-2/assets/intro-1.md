@@ -14,8 +14,6 @@ This study has 3 parts:
 - **Part 2:** You’ll answer multiple-choice questions about the data visualizations we show you.
 - **Part 3:** You’ll take a look at a few more data visualizations and share your thoughts out loud using the microphone on your device.
 
-If you do not feel comfortable speaking into your microphone, we ask that you return the study.
-
 In total, it should take around 25 minutes. There will be a few breaks throughout the study so you can refresh your mind or take a sip of water. 
 
 Participation in this study is **anonymous**: we won't ask you for your name or other directly identifying information.
