@@ -205,7 +205,7 @@
         "stimulus-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "response": []
         },
@@ -213,7 +213,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -322,7 +322,7 @@
         "example-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "parameters": {
                 "imagePath": "!stage-1/assets/mariah.png"
@@ -333,7 +333,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself---for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
