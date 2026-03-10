@@ -44,8 +44,8 @@ export default function PngChartPhase({ parameters }: Props) {
         alt=""
         style={{
           display: 'block',
-          maxWidth: '90vw',
-          maxHeight: '75vh',
+          maxWidth: '60vw',
+          maxHeight: '110vh',
           objectFit: 'contain',
           marginBottom: 10,
         }}
