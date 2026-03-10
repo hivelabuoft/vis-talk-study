@@ -172,40 +172,13 @@
                     "secondaryText": "Note that this question is asking about your opinion of the chart (i.e. the entirety of the image above), not the specific topic it covers.",
                     "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
                     "required": true
-                },
-                {
-                    "id": "pre_word_1",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": "Please write 3 words that, in your opinion, best describe this chart.",
-                    "secondaryText": "Word 1",
-                    "required": true,
-                    "placeholder": ""
-                },
-                {
-                    "id": "pre_word_2",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": " ",
-                    "secondaryText": "Word 2",
-                    "required": true,
-                    "placeholder": ""
-                },
-                {
-                    "id": "pre_word_3",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": " ",
-                    "secondaryText": "Word 3",
-                    "required": true,
-                    "placeholder": ""
                 }
             ]
         },
         "stimulus-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "response": []
         },
@@ -213,7 +186,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -251,6 +224,33 @@
                     "secondaryText": "If your opinion has not changed, you may leave this field blank.",
                     "type": "shortText",
                     "placeholder": "Explain your updated opinion here"
+                },
+                {
+                    "id": "post_word_1",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": "Please write 3 words that reflect your overall opinion of this chart.",
+                    "secondaryText": "Word 1",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "post_word_2",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 2",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "post_word_3",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 3",
+                    "required": true,
+                    "placeholder": ""
                 }
             ]
         },
@@ -258,7 +258,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "nextButtonEnableTime": 30000,
-            "instruction": "Please read and understand the following chart. Then, click 'Next' to proceed.",
+            "instruction": "Please read and understand the following chart. Note that you can scroll down to see the full chart. Then, click 'Next' to proceed.",
             "parameters": {
                 "phase": "view",
                 "issueId": null,
@@ -271,7 +271,7 @@
         "example-pre-words": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "Please fill out the text box below.",
+            "instruction": "Please fill out the question below.",
             "parameters": {
                 "phase": "pre_words",
                 "issueId": null,
@@ -289,40 +289,13 @@
                     "secondaryText": "Note that this question is asking about your opinion of the chart (i.e. the entirety of the image above), not the specific topic it covers.",
                     "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
                     "required": true
-                },
-                {
-                    "id": "pre_word_1",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": "Please write 3 words that, in your opinion, best describe this chart.",
-                    "secondaryText": "Word 1",
-                    "required": true,
-                    "placeholder": ""
-                },
-                {
-                    "id": "pre_word_2",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": " ",
-                    "secondaryText": "Word 2",
-                    "required": true,
-                    "placeholder": ""
-                },
-                {
-                    "id": "pre_word_3",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": " ",
-                    "secondaryText": "Word 3",
-                    "required": true,
-                    "placeholder": ""
                 }
             ]
         },
         "example-getready": {
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "parameters": {
                 "imagePath": "!stage-1/assets/mariah.png"
@@ -333,7 +306,7 @@
             "type": "react-component",
             "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "You have now rated this chart and chosen words to describe it. For this next task, please explain your opinion by talking about the chart itself—for example, what you noticed about it that led to your impression. <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -371,6 +344,33 @@
                     "secondaryText": "If your opinion has not changed, you may leave this field blank.",
                     "type": "shortText",
                     "placeholder": "Explain your updated opinion here"
+                },
+                {
+                    "id": "post_word_1",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": "Please write 3 words that reflect your overall opinion of this chart.",
+                    "secondaryText": "Word 1",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "post_word_2",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 2",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "post_word_3",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 3",
+                    "required": true,
+                    "placeholder": ""
                 }
             ]
         },
