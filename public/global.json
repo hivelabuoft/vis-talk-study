@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/revisit-studies/study/v2.4.0/src/parser/GlobalConfigSchema.json",
   "configsList": [
+    "stage-2",
     "stage-1",
     "pilot-thinkaloud",
     "basic-questionnaire-study",
@@ -58,6 +59,9 @@
     "test-step-logic"
   ],
   "configs": {
+    "stage-2": {
+      "path": "!stage-2/config.json"
+    },
     "stage-1": {
       "path": "!stage-1/config.json"
     },

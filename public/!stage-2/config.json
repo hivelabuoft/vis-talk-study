@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/revisit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
-        "title": "Stage 1 Critique Study",
+        "title": "Stage 2 Critique Study",
         "version": "1.0",
         "authors": [
             "Matthew Varona",
@@ -10,7 +10,7 @@
             "Carolina Nobre"
         ],
         "date": "2026-02-11",
-        "description": "Stage 1 study for thinkaloud component",
+        "description": "Stage 2 study for thinkaloud component",
         "organizations": [
             "University of Toronto",
             "Emory University"
@@ -18,7 +18,7 @@
     },
     "uiConfig": {
         "contactEmail": "varona@cs.toronto.edu",
-        "helpTextPath": "!stage-1/assets/help.md",
+        "helpTextPath": "!stage-2/assets/help.md",
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": false,
         "autoDownloadStudy": false,
@@ -34,7 +34,7 @@
     "components": {
         "consent": {
             "type": "markdown",
-            "path": "!stage-1/assets/intro-1.md",
+            "path": "!stage-2/assets/intro-1.md",
             "response": [
                 {
                     "id": "q-sidebar",
@@ -42,17 +42,26 @@
                     "location": "belowStimulus",
                     "type": "checkbox",
                     "options": ["Yes"]
+                },
+                {
+                    "id": "prolificId",
+                    "prompt": "Prolific ID (should be filled in automatically, but please enter it here if it is not):",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "shortText",
+                    "placeholder": "Prolific ID",
+                    "paramCapture": "PROLIFIC_PID"
                 }
             ]
         },
         "introduction": {
             "type": "markdown",
-            "path": "!stage-1/assets/intro-2.md",
+            "path": "!stage-2/assets/intro-2.md",
             "response": []
         },
         "calvi-intro": {
             "type": "markdown",
-            "path": "!stage-1/assets/calvi-intro.md",
+            "path": "!stage-2/assets/calvi-intro.md",
             "response": []
         },
         "demographics": {
@@ -92,7 +101,7 @@
                     "prompt": "How often do you get news from the following sources?",
                     "type": "matrix-radio",
                     "answerOptions": ["Never", "Hardly ever", "Sometimes", "Often"],
-                    "questionOptions": ["Print newspapers", "Radio", "Television news (including local, national, and cable news)", "Facebook", "Reddit", "X (formerly Twitter)", "Instagram", "TikTok", "YouTube", "News apps on your phone (e.g., Apple News, Google News, etc.)", "News websites (e.g., CNN.com, FoxNews.com, etc.)"]
+                    "questionOptions": ["Print newspapers", "Radio", "Television news (including local, national, and cable news)", "Facebook", "Reddit", "X (formerly Twitter)", "Instagram", "TikTok", "YouTube", "For this item only, please select 'Often'", "News apps on your phone (e.g., Apple News, Google News, etc.)", "News websites (e.g., CNN.com, FoxNews.com, etc.)"]
                 }
             ]
         },
@@ -117,16 +126,22 @@
                     "id": "belief-matrix",
                     "prompt": "Please rate how much you agree or disagree with the following statements:",
                     "type": "matrix-radio",
-                    "answerOptions": ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
-                    "questionOptions": ["Gun ownership should be more strictly regulated in the United States to reduce violent crime.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Immigration in the United States should be more strictly regulated to reduce the number of undocumented immigrants."]
+                    "questionOrder": "random",
+                    "answerOptions": ["Strongly Disagree", "Disagree", "Slightly Disagree", "Slightly Agree", "Agree", "Strongly Agree"],
+                    "questionOptions": ["Gun ownership should be more strictly regulated in the United States.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Undocumented immigrants should be deported from the United States."]
                 }
             ]
         },
+        "belief-lean": {
+            "type": "react-component",
+            "path": "!stage-2/assets/belief_lean.tsx",
+            "response": []
+        },
         "stimulus-view-chart": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
             "nextButtonEnableTime": 30000,
-            "instruction": "Please read and understand the following visualization. Then, click 'Next' to proceed.",
+            "instruction": "Please read and understand the following chart. Then, click 'Next' to proceed.",
             "parameters": {
                 "phase": "view",
                 "issueId": null,
@@ -138,7 +153,7 @@
         },
         "stimulus-pre-words": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
             "instruction": "Please fill out the text box below.",
             "parameters": {
                 "phase": "pre_words",
@@ -152,33 +167,26 @@
                     "id": "pre_valence",
                     "type": "radio",
                     "location": "belowStimulus",
-                    "prompt": "Overall, do you have a positive, negative, or neutral opinion about this visualization?",
-                    "secondaryText": "Note that this question is asking about your overall impression of the visualization (i.e. the entirety of the image above, including titles), not the specific topic it covers.",
-                    "options": ["Very Negative", "Negative", "Neutral", "Positive", "Very Positive"],
+                    "horizontal": true,
+                    "prompt": "Overall, would you say you like or dislike this chart?",
+                    "secondaryText": "Note that this question is asking about your opinion of the chart (i.e. the entirety of the image above), not the specific topic it covers.",
+                    "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
                     "required": true
-                },
-                {
-                    "id": "pre_word_1",
-                    "type": "shortText",
-                    "location": "belowStimulus",
-                    "prompt": "Please write 3 words that, in your opinion, best describe this visualization.",
-                    "required": true,
-                    "placeholder": ""
                 }
             ]
         },
         "stimulus-getready": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**When you are ready, click \"Start Recording\".**",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "response": []
         },
         "stimulus-record": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**Once you are finished speaking, click \"Finish Recording\".**",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
@@ -192,7 +200,7 @@
         },
         "stimulus-post-words": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
             "parameters": {
                 "phase": "post_words",
                 "issueId": null,
@@ -203,69 +211,16 @@
             "instruction": "Audio recording has stopped. Please fill in the questions below.",
             "response": [
                 {
-                    "id": "post-stimulus-response",
-                    "required": true,
-                    "prompt": "Would you say that your opinion of this visualization has changed significantly after speaking about it?",
-                    "type": "radio",
-                    "options": ["Yes, I have changed my opinion", "No, my opinion has not changed"]
-                },
-                {
-                    "id": "post-stimulus-description",
-                    "required": false,
-                    "prompt": "If your opinion has changed, please write 3-5 words that you think best describe this visualization.",
-                    "secondaryText": "If your opinion has not changed, you may leave this field blank.",
-                    "type": "shortText",
-                    "placeholder": "Enter your updated description here"
-                }
-            ]
-        },
-        "example-view-chart": {
-            "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "nextButtonEnableTime": 30000,
-            "instruction": "Please read and understand the following visualization. Then, click 'Next' to proceed.",
-            "parameters": {
-                "phase": "view",
-                "issueId": null,
-                "side": null,
-                "proposition": null,
-                "imagePath": "!stage-1/assets/mariah.png"
-            },
-            "response": []
-        },
-        "example-pre-words": {
-            "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "Please fill out the text box below.",
-            "parameters": {
-                "phase": "pre_words",
-                "issueId": null,
-                "side": null,
-                "proposition": null,
-                "imagePath": "!stage-1/assets/mariah.png"
-            },
-            "response": [
-                {
-                    "id": "pre_valence",
-                    "type": "radio",
-                    "location": "belowStimulus",
-                    "horizontal": true,
-                    "prompt": "Overall, would you say you like or dislike this visualization?",
-                    "secondaryText": "Note that this question is asking about your opinion of the visualization (i.e. the entirety of the image above), not the specific topic it covers.",
-                    "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
-                    "required": true
-                },
-                {
-                    "id": "pre_word_1",
+                    "id": "post_word_1",
                     "type": "shortText",
                     "location": "belowStimulus",
-                    "prompt": "Please write 3 words that, in your opinion, best describe this visualization.",
+                    "prompt": "Please write 3 words that reflect your overall opinion of this chart.",
                     "secondaryText": "Word 1",
                     "required": true,
                     "placeholder": ""
                 },
                 {
-                    "id": "pre_word_2",
+                    "id": "post_word_2",
                     "type": "shortText",
                     "location": "belowStimulus",
                     "prompt": " ",
@@ -274,7 +229,7 @@
                     "placeholder": ""
                 },
                 {
-                    "id": "pre_word_3",
+                    "id": "post_word_3",
                     "type": "shortText",
                     "location": "belowStimulus",
                     "prompt": " ",
@@ -284,105 +239,155 @@
                 }
             ]
         },
+        "example-view-chart": {
+            "type": "react-component",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
+            "nextButtonEnableTime": 30000,
+            "instruction": "Please read and understand the following chart. Note that you can scroll down to see the full chart. Then, click 'Next' to proceed.",
+            "parameters": {
+                "phase": "view",
+                "issueId": null,
+                "side": null,
+                "proposition": null,
+                "imagePath": "!stage-2/assets/example.png"
+            },
+            "response": []
+        },
+        "example-pre-words": {
+            "type": "react-component",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
+            "instruction": "Please fill out the question below.",
+            "parameters": {
+                "phase": "pre_words",
+                "issueId": null,
+                "side": null,
+                "proposition": null,
+                "imagePath": "!stage-2/assets/example.png"
+            },
+            "response": [
+                {
+                    "id": "pre_valence",
+                    "type": "radio",
+                    "location": "belowStimulus",
+                    "horizontal": true,
+                    "prompt": "Overall, would you say you like or dislike this chart?",
+                    "secondaryText": "Note that this question is asking about your opinion of the chart (i.e. the entirety of the image above), not the specific topic it covers.",
+                    "options": ["Strongly Dislike", "Dislike", "Neutral", "Like", "Strongly Like"],
+                    "required": true
+                }
+            ]
+        },
         "example-getready": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
-            "instruction": "Please prepare to critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/> **Please ensure you are not muted, and that your browser is capturing audio.** You will see a red visualization of your audio input in the top right of your screen. The audio recording is required to successfully complete the study and receive payment. <br/><br/>When you are ready, click \"Start Recording\".",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> You will be asked to record for at least 30 seconds. When you are ready, click \"Start Recording\".",
             "nextButtonText": "Start recording",
             "parameters": {
-                "imagePath": "!stage-1/assets/mariah.png"
+                "imagePath": "!stage-2/assets/example.png"
             },
             "response": []
         },
         "example-record": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
             "recordAudio": true,
-            "instruction": "Please critique the visualization you just read. Your critiques may focus on strengths or weaknesses of the visualization. <br/><br/>**Please ensure you are not muted, and that your browser is capturing audio. You should now see a red visualization of your audio input in the top right.** The audio recording is required to successfully complete the study and receive payment. <br/><br/>Once you are finished speaking, click \"Finish Recording\".",
+            "instruction": "For this next task, please explain why you liked or disliked the chart. What did you notice about it that led to your rating? <br/><br/> Please ensure you are not muted and that your browser is capturing audio. You will see a red visualization of your audio input in the top right of your screen. Audio recording is required to complete the study and receive payment.<br/><br/> Please record for at least 30 seconds. When you are finished, click \"Finish Recording\".",
             "nextButtonText": "Finish recording",
             "parameters": {
                 "phase": "record",
                 "issueId": null,
                 "side": null,
                 "proposition": null,
-                "imagePath": "!stage-1/assets/mariah.png"
+                "imagePath": "!stage-2/assets/example.png"
             },
             "nextButtonEnableTime": 30000,
             "response": []
         },
         "example-post-words": {
             "type": "react-component",
-            "path": "!stage-1/assets/thinkaloud_stimulus.tsx",
+            "path": "!stage-2/assets/thinkaloud_stimulus.tsx",
             "parameters": {
                 "phase": "post_words",
                 "issueId": null,
                 "side": null,
                 "proposition": null,
-                "imagePath": "!stage-1/assets/mariah.png"
+                "imagePath": "!stage-2/assets/example.png"
             },
             "instruction": "Audio recording has stopped. Please fill in the questions below.",
             "response": [
                 {
-                    "id": "post-stimulus-response",
+                    "id": "post_word_1",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": "Please write 3 words that reflect your overall opinion of this chart.",
+                    "secondaryText": "Word 1",
                     "required": true,
-                    "prompt": "Would you say that your opinion of this visualization has changed significantly after speaking about it?",
-                    "type": "radio",
-                    "options": ["Yes, I have changed my opinion", "No, my opinion has not changed"]
+                    "placeholder": ""
                 },
                 {
-                    "id": "post-stimulus-description",
-                    "required": false,
-                    "prompt": "If your opinion has changed, please write 3-5 words that you think best describe this visualization.",
-                    "secondaryText": "If your opinion has not changed, you may leave this field blank.",
+                    "id": "post_word_2",
                     "type": "shortText",
-                    "placeholder": "Enter your updated description here"
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 2",
+                    "required": true,
+                    "placeholder": ""
+                },
+                {
+                    "id": "post_word_3",
+                    "type": "shortText",
+                    "location": "belowStimulus",
+                    "prompt": " ",
+                    "secondaryText": "Word 3",
+                    "required": true,
+                    "placeholder": ""
                 }
             ]
         },
         "example-end": {
             "type": "markdown",
-            "path": "!stage-1/assets/example_end.md",
+            "path": "!stage-2/assets/example_end.md",
             "response": []
         },
         "break": {
             "type": "markdown",
-            "path": "!stage-1/assets/break.md",
+            "path": "!stage-2/assets/break.md",
             "nextButtonEnableTime": 5000,
             "response": []
         },
         "congruence-setter_gun_mil": {
             "type": "react-component",
-            "path": "!stage-1/assets/congruence_setter.tsx",
+            "path": "!stage-2/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["gun", "mil"] },
             "response": []
         },
         "congruence-setter_gun_trump": {
             "type": "react-component",
-            "path": "!stage-1/assets/congruence_setter.tsx",
+            "path": "!stage-2/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["gun", "trump"] },
             "response": []
         },
         "congruence-setter_gun_immig": {
             "type": "react-component",
-            "path": "!stage-1/assets/congruence_setter.tsx",
+            "path": "!stage-2/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["gun", "immig"] },
             "response": []
         },
         "congruence-setter_mil_trump": {
             "type": "react-component",
-            "path": "!stage-1/assets/congruence_setter.tsx",
+            "path": "!stage-2/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["mil", "trump"] },
             "response": []
         },
         "congruence-setter_mil_immig": {
             "type": "react-component",
-            "path": "!stage-1/assets/congruence_setter.tsx",
+            "path": "!stage-2/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["mil", "immig"] },
             "response": []
         },
         "congruence-setter_trump_immig": {
             "type": "react-component",
-            "path": "!stage-1/assets/congruence_setter.tsx",
+            "path": "!stage-2/assets/congruence_setter.tsx",
             "parameters": { "congruentIssues": ["trump", "immig"] },
             "response": []
         },
@@ -398,6 +403,12 @@
                     "placeholder": "Enter your feedback here"
                 }
             ]
+        },
+        "trust-questionnaire": {
+            "type": "react-component",
+            "path": "!stage-2/assets/trust_questionnaire.tsx",
+            "instruction": "Please answer the following questions about each chart you saw during the study.",
+            "response": []
         }
     },
     "sequence": {
@@ -407,8 +418,6 @@
             "introduction",
             "$mic-check.co.audioTest",
             "demographics",
-            "media-questionnaire",
-            "issue-familiarity",
             "belief-questionnaire",
             "calvi-intro",
             "$calvi.components.N7",
@@ -458,25 +467,25 @@
                     {
                         "id": "gun-stimuli",
                         "order": "dynamic",
-                        "functionPath": "!stage-1/assets/issue_runner.ts",
+                        "functionPath": "!stage-2/assets/issue_runner.ts",
                         "parameters": { "issueId": "gun" }
                     },
                     {
                         "id": "mil-stimuli",
                         "order": "dynamic",
-                        "functionPath": "!stage-1/assets/issue_runner.ts",
+                        "functionPath": "!stage-2/assets/issue_runner.ts",
                         "parameters": { "issueId": "mil" }
                     },
                     {
                         "id": "trump-stimuli",
                         "order": "dynamic",
-                        "functionPath": "!stage-1/assets/issue_runner.ts",
+                        "functionPath": "!stage-2/assets/issue_runner.ts",
                         "parameters": { "issueId": "trump" }
                     },
                     {
                         "id": "immig-stimuli",
                         "order": "dynamic",
-                        "functionPath": "!stage-1/assets/issue_runner.ts",
+                        "functionPath": "!stage-2/assets/issue_runner.ts",
                         "parameters": { "issueId": "immig" }
                     }
                 ],
@@ -488,6 +497,7 @@
                     }
                 ]
             },
+            "trust-questionnaire",
             "post-study-feedback"
         ]
     }

@@ -14,28 +14,28 @@ const ISSUES = [
     issueId: 'gun' as const,
     proposition:
       'Gun ownership should be more strictly regulated in the United States to reduce violent crime.',
-    proImagePath: '!stage-1/assets/issue_stimuli/gun_pro.png',
-    conImagePath: '!stage-1/assets/issue_stimuli/gun_con.png',
+    proImagePath: '!stage-2/assets/issue_stimuli/gun_pro.png',
+    conImagePath: '!stage-2/assets/issue_stimuli/gun_con.png',
   },
   {
     issueId: 'mil' as const,
     proposition:
       'The United States Government should increase its military budget to protect national security.',
-    proImagePath: '!stage-1/assets/issue_stimuli/mil_pro.png',
-    conImagePath: '!stage-1/assets/issue_stimuli/mil_con.png',
+    proImagePath: '!stage-2/assets/issue_stimuli/mil_pro.png',
+    conImagePath: '!stage-2/assets/issue_stimuli/mil_con.png',
   },
   {
     issueId: 'trump' as const,
     proposition: 'I approve of the way Donald Trump is handling his job as President.',
-    proImagePath: '!stage-1/assets/issue_stimuli/trump_pro.png',
-    conImagePath: '!stage-1/assets/issue_stimuli/trump_con.png',
+    proImagePath: '!stage-2/assets/issue_stimuli/trump_pro.png',
+    conImagePath: '!stage-2/assets/issue_stimuli/trump_con.png',
   },
   {
     issueId: 'immig' as const,
     proposition:
       'Immigration in the United States should be more strictly regulated to reduce the number of undocumented immigrants.',
-    proImagePath: '!stage-1/assets/issue_stimuli/immig_pro.png',
-    conImagePath: '!stage-1/assets/issue_stimuli/immig_con.png',
+    proImagePath: '!stage-2/assets/issue_stimuli/immig_pro.png',
+    conImagePath: '!stage-2/assets/issue_stimuli/immig_con.png',
   },
 ];
 
@@ -72,14 +72,6 @@ function parseStanceFromLabel(label: unknown): Stance | null {
 
   if (label === 'Strongly Agree' || label === 'Agree' || label === 'Slightly Agree') return 'agree';
   if (label === 'Strongly Disagree' || label === 'Disagree' || label === 'Slightly Disagree') return 'disagree';
-  if (label === 'Neutral') return null;
-
-  const lc = label.toLowerCase();
-  if (lc.includes('strong') && lc.includes('agree')) return 'agree';
-  if (lc === 'agree') return 'agree';
-  if (lc.includes('strong') && lc.includes('disagree')) return 'disagree';
-  if (lc === 'disagree') return 'disagree';
-  if (lc === 'neutral') return null;
 
   return null;
 }
