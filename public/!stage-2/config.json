@@ -93,32 +93,6 @@
                 }
             ]
         },
-        "media-questionnaire": {
-            "type": "questionnaire",
-            "response": [
-                {
-                    "id": "media-matrix",
-                    "prompt": "How often do you get news from the following sources?",
-                    "type": "matrix-radio",
-                    "answerOptions": ["Never", "Hardly ever", "Sometimes", "Often"],
-                    "questionOptions": ["Print newspapers", "Radio", "Television news (including local, national, and cable news)", "Facebook", "Reddit", "X (formerly Twitter)", "Instagram", "TikTok", "YouTube", "For this item only, please select 'Often'", "News apps on your phone (e.g., Apple News, Google News, etc.)", "News websites (e.g., CNN.com, FoxNews.com, etc.)"]
-                }
-            ]
-        },
-        "issue-familiarity": {
-            "type": "questionnaire",
-            "instructionLocation": "aboveStimulus",
-            "response": [
-                {
-                    "id": "issue-familiarity-matrix",
-                    "prompt": "Please rate how informed you would consider yourself about the following topics:",
-                    "secondaryText": "There are no right or wrong answers, so please answer honestly based on your own feelings of familiarity with each topic.",
-                    "type": "matrix-radio",
-                    "answerOptions": ["I have never heard of it", "I’ve heard of it, but know almost nothing", "I know a little", "I know a fair amount", "I know a lot"],
-                    "questionOptions": ["Gun control", "United States military spending", "Different branches of government", "Immigration policy"]
-                }
-            ]
-        },
         "belief-questionnaire": {
             "type": "questionnaire",
             "response": [
@@ -128,7 +102,7 @@
                     "type": "matrix-radio",
                     "questionOrder": "random",
                     "answerOptions": ["Strongly Disagree", "Disagree", "Slightly Disagree", "Slightly Agree", "Agree", "Strongly Agree"],
-                    "questionOptions": ["Gun ownership should be more strictly regulated in the United States.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Undocumented immigrants should be deported from the United States."]
+                    "questionOptions": ["Gun ownership should be more strictly regulated in the United States.", "The United States Government should increase its military budget to protect national security.", "I approve of the way Donald Trump is handling his job as President.", "Undocumented immigrants should be deported from the United States.", "For this item only, please select \"Slightly Disagree\"."]
                 }
             ]
         },
